@@ -13,14 +13,36 @@ public class Proc1Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_proc1);
+
+        int nLanguage = 0;
+        Language fnLang = (Language) getApplicationContext();
+        nLanguage = fnLang.getGlobalLanguage();
+
+        if (nLanguage == 1) {
+            setContentView(R.layout.activity_proc1_eng);
+        } else if (nLanguage == 2) {
+            setContentView(R.layout.activity_proc1_jap);
+        } else if (nLanguage == 3) {
+            setContentView(R.layout.activity_proc1_chi);
+        } else {
+            setContentView(R.layout.activity_proc1);
+        }
 
         Intent intent = getIntent();
         data = intent.getStringExtra("care");
         //Toast.makeText(this, data + " 선택하셨습니다.",Toast.LENGTH_SHORT).show();
 
         Button button = (Button)findViewById(R.id.button_next);
-        button.setText(data + " 진행");
+
+        if (nLanguage == 1) {
+            button.setText(data);
+        } else if (nLanguage == 2) {
+            button.setText(data + "進行");
+        } else if (nLanguage == 3) {
+            button.setText(data + "进行");
+        } else {
+            button.setText(data + " 진행");
+        }
     }
 
     public void onClick(View view) {

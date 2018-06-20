@@ -65,8 +65,9 @@ public class Proc2Activity extends AppCompatActivity {
     }
 
     public void onClickHome(View view) {
-        setResult(2);
-        finish();
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
         //Toast.makeText(this,this.getParent().getLocalClassName(),Toast.LENGTH_SHORT).show();
     }
 

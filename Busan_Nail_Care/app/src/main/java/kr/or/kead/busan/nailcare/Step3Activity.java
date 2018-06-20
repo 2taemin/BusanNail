@@ -116,8 +116,9 @@ public class Step3Activity extends AppCompatActivity {
     }
 
     public void onClickHome(View view) {
-        setResult(2);
-        finish();
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 
     public void onClickNext(View view) {

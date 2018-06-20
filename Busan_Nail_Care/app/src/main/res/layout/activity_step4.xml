@@ -281,11 +281,7 @@
                     android:src="@drawable/button_home"
                     android:layout_width="50dp"
                     android:layout_height="85dp" />
-                <ImageView
-                    android:onClick="onClickNext"
-                    android:src="@drawable/button_quit"
-                    android:layout_width="50dp"
-                    android:layout_height="85dp" />
+
             </LinearLayout>
             <LinearLayout
                 android:weightSum="2"
@@ -349,7 +345,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <TextView
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="140dp"
             android:text="남은시간"
             android:layout_gravity="center"
             android:textSize="40dp"

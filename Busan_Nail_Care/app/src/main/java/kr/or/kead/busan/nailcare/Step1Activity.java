@@ -15,7 +15,20 @@ public class Step1Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_step1);
+
+        int nLanguage = 0;
+        Language fnLang = (Language) getApplicationContext();
+        nLanguage = fnLang.getGlobalLanguage();
+
+        if (nLanguage == 1) {
+            setContentView(R.layout.activity_step1_eng);
+        } else if (nLanguage == 2) {
+            setContentView(R.layout.activity_step1_jap);
+        } else if (nLanguage == 3) {
+            setContentView(R.layout.activity_step1_chi);
+        } else {
+            setContentView(R.layout.activity_step1);
+        }
 
         Intent intent = getIntent();
         data = intent.getStringExtra("care");

@@ -44,7 +44,20 @@ public class Step4Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_step4);
+
+        int nLanguage = 0;
+        Language fnLang = (Language) getApplicationContext();
+        nLanguage = fnLang.getGlobalLanguage();
+
+        if (nLanguage == 1) {
+            setContentView(R.layout.activity_step4_eng);
+        } else if (nLanguage == 2) {
+            setContentView(R.layout.activity_step4_jap);
+        } else if (nLanguage == 3) {
+            setContentView(R.layout.activity_step4_chi);
+        } else {
+            setContentView(R.layout.activity_step4);
+        }
 
          painLinearLayout = (LinearLayout)findViewById(R.id.pain);
 
@@ -93,8 +106,9 @@ public class Step4Activity extends AppCompatActivity {
     }
 
     public void onClickHome(View view) {
-        setResult(2);
-        finish();
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 
     public void onClickNext(View view) {
